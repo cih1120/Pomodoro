@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-red-200: 230, 100, 107;
+    --color-brown-200: 175 147 49;
+    --color-green-200: 104 152 115;
+    --color-compared-200: 55 27 21;
+    --color-compared-100: 128 102 96;
+    --color-apricot-200: 237 177 131;
+    --color-apricot-100: 243 224 207;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
