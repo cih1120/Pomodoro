@@ -6,7 +6,17 @@ import { ITimeDashboardState, TimeDashboardAction } from "./type";
 const TimeDashboardState: ITimeDashboardState = {
   mode: "focus",
   task: null,
-  isActive: false,
+  isRunning: false,
+  modeName: {
+    focus: "Focus",
+    shortBreak: "Short Break",
+    longBreak: "Long Break",
+  },
+  timer: {
+    focus: 25 * 60,
+    shortBreak: 5 * 60,
+    longBreak: 15 * 60,
+  },
 };
 
 const TimeDashboardContext = createContext<{

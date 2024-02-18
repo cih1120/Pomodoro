@@ -17,9 +17,9 @@ export default function timeDashboardReducer(
         draft.task = action.payload;
       });
     }
-    case TimeDashboardActionTypes.TOGGLE_ACTIVE: {
+    case TimeDashboardActionTypes.TOGGLE_RUNNING: {
       return produce(state, (draft) => {
-        draft.isActive = !state.isActive;
+        draft.isRunning = !state.isRunning;
       });
     }
     default:
