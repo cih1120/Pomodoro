@@ -11,14 +11,20 @@ const config: Config = {
         transparent: "transparent",
         white: "#fff",
         black: "#000",
-        red: {
-          200: 'rgb(var(--color-red-200) / <alpha-value>)',
+        cherry: {
+          100: 'rgb(var(--color-cherry-100) / <alpha-value>)',
+          200: 'rgb(var(--color-cherry-200) / <alpha-value>)',
+          300: 'rgb(var(--color-cherry-300) / <alpha-value>)',
         },
         brown: {
+          100: 'rgb(var(--color-brown-100) / <alpha-value>)',
           200: 'rgb(var(--color-brown-200) / <alpha-value>)',
+          300: 'rgb(var(--color-brown-300) / <alpha-value>)',
         },
         green: {
+          100: 'rgb(var(--color-green-100) / <alpha-value>)',
           200: 'rgb(var(--color-green-200) / <alpha-value>)',
+          300: 'rgb(var(--color-green-300) / <alpha-value>)',
         },
         compared: {
           200: 'rgb(var(--color-compared-200) / <alpha-value>)',

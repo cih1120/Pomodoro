@@ -29,7 +29,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${notoSans.variable} ${ebGaramond.variable} font-sans`}>{children}</body>
+      <body
+        className={`${notoSans.variable} ${ebGaramond.variable} bg-apricot-100 font-sans`}
+        suppressHydrationWarning={true}
+      >
+        <header className="w-full py-6 text-center">
+          <h1 className="font-garamond text-4xl font-extrabold italic leading-7">Pomodoro</h1>
+        </header>
+        <main>{children}</main>
+      </body>
     </html>
   );
 }

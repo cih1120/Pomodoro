@@ -4,9 +4,15 @@
 
 @layer base {
   :root {
-    --color-red-200: 230, 100, 107;
+    --color-cherry-100: 224 135 140;
+    --color-cherry-200: 230 100 107;
+    --color-cherry-300: 204 80 86;
+    --color-brown-100: 181 158 77;
     --color-brown-200: 175 147 49;
+    --color-brown-300: 139 110 9;
+    --color-green-100: 138 164 144;
     --color-green-200: 104 152 115;
+    --color-green-300: 72 124 84;
     --color-compared-200: 55 27 21;
     --color-compared-100: 128 102 96;
     --color-apricot-200: 237 177 131;
@@ -15,6 +21,16 @@
 }
 
 @layer utilities {
+  .shadow-normal {
+    box-shadow:
+      6px 0px 0px 0px rgba(0, 0, 0, 0.25),
+      0px 4px 0px 0px rgba(0, 0, 0, 0.08) inset;
+  }
+
+  .absolute-center {
+    @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform;
+  }
+
   .text-balance {
     text-wrap: balance;
   }
