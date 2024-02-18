@@ -9,14 +9,16 @@ const TimeController = () => {
   const { isRunning, mode } = state;
 
   const handleStart = () => {
-    dispatch({ type: TimeDashboardActionTypes.TOGGLE_RUNNING });
+    dispatch({ type: TimeDashboardActionTypes.SET_START });
   };
 
   const handleRestart = () => {
-    dispatch({ type: TimeDashboardActionTypes.TOGGLE_RUNNING });
+    dispatch({ type: TimeDashboardActionTypes.SET_RESTART });
   };
 
-  const handlePause = () => {};
+  const handlePause = () => {
+    dispatch({ type: TimeDashboardActionTypes.TOGGLE_PAUSE });
+  };
 
   return (
     <div className="flex gap-1">
@@ -36,7 +38,7 @@ const ControllerButton = ({
   onClick: MouseEventHandler<HTMLButtonElement> | undefined;
 }) => {
   const { state, dispatch } = useTimeDashboard();
-  const { isRunning, mode, modeName } = state;
+  const { isRunning, isPausing: isPause, mode, modeName } = state;
 
   const buttonVariants = cva(
     "w-full rounded-lg px-1 py-3 text-center font-garamond text-[25px] font-extrabold text-white italic transition",
@@ -63,7 +65,7 @@ const ControllerButton = ({
 
   return (
     <button onClick={onClick} className={className}>
-      {isRunning ? "Pause" : `Start ${modeName[mode]}`}
+      {!isRunning ? `Start ${modeName[mode]}` : isPause ? "Start" : "Pause"}
     </button>
   );
 };

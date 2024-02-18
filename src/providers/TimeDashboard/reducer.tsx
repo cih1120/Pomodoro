@@ -17,6 +17,23 @@ export default function timeDashboardReducer(
         draft.task = action.payload;
       });
     }
+    case TimeDashboardActionTypes.SET_START: {
+      return produce(state, (draft) => {
+        draft.isRunning = true;
+        draft.isPausing = false;
+      });
+    }
+    case TimeDashboardActionTypes.SET_RESTART: {
+      return produce(state, (draft) => {
+        draft.isRunning = false;
+        draft.isPausing = false;
+      });
+    }
+    case TimeDashboardActionTypes.TOGGLE_PAUSE: {
+      return produce(state, (draft) => {
+        draft.isPausing = !state.isPausing;
+      });
+    }
     case TimeDashboardActionTypes.TOGGLE_RUNNING: {
       return produce(state, (draft) => {
         draft.isRunning = !state.isRunning;

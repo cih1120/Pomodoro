@@ -2,28 +2,23 @@ import { useEffect, useMemo, useState } from "react";
 import { useTimeDashboard } from "@/src/providers/TimeDashboard";
 import { cn } from "@/src/utils";
 import { cva } from "class-variance-authority";
+import { useTimer } from "@/src/hooks/useTimer";
 
 const ProgressBar = () => {
   const { state, dispatch } = useTimeDashboard();
-  const { isRunning, mode } = state;
-  const [elapsedSeconds, setElapsedSeconds] = useState(0);
-
-  const progressPercentage = Math.min((elapsedSeconds / state.timer[mode]) * 100, 100);
-
-  useEffect(() => {
-    setElapsedSeconds(state.timer[mode]);
-  }, [mode]);
+  const { isRunning, isPausing, mode } = state;
+  const { remainingSeconds, progressPercentage } = useTimer();
 
   return (
     <div className="relative">
       <ProgressCircle percent={progressPercentage} />
       <p
         className={cn([
-          isRunning ? "text-compared-200" : "text-compared-100",
-          "absolute-center text-5xl font-black",
+          isRunning && !isPausing ? "text-compared-200" : "text-compared-100",
+          "absolute-center text-4xl font-black",
         ])}
       >
-        {Math.floor(elapsedSeconds / 60)} : {elapsedSeconds % 60}
+        {Math.floor(remainingSeconds / 60)} : {remainingSeconds % 60}
       </p>
     </div>
   );
